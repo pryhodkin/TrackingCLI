@@ -10,25 +10,24 @@
 class History
 {
 private:
-    std::vector<Command> history;
-    bool isOn;
-    int savedPointer;
+    std::vector<Command> history;       //field that contains all records in history
+    bool isOn;                          //should we write to history or not
+    int savedPointer;                   //index of record that we should save to logfile at first
 
 public:
     History();
 
-    bool Clear();
-    bool Write(Command command);
-    std::string ToString(int bottomBound);
+    bool Clear();                           //clearing the history
+    bool Write(const Command& command);            //write some Command to history
+    std::string ToString(int bottomBound);  //conversion to string from some exact bottom bound till the end of history
 
-    bool IsOn();
-    void IsOn(bool set);
+    bool IsOn();                        //getter for 'isOn'
+    void IsOn(bool set);                //setter for 'isOn'
 
-    int SavedPointer();
-    void SavedPointer(int set);
+    int SavedPointer();                 //getter for 'savedPointer'
+    void SavedPointer(int set);         //setter for 'savedPointer'
 
-    int Size();
-
+    int Size();                         //size of history (number of records)
 };
 
 #endif //LAB17_HISTORY_H

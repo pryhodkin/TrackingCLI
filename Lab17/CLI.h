@@ -11,33 +11,33 @@
 class CLI
 {
 private:
-    Log* log;
-    History* history;
+    Log* log;                               //log to save current & get old history
+    History* history;                       //history to save typed commands
 
 public:
     CLI();
 
-    Command* GetCommand();
-    bool ExecuteCommand(Command* command);
-    void Greet();
-    void Prompt();
+    Command* GetCommand();                  //gets new command from console
+    bool ExecuteCommand(Command* command);  //execute specific command
+    void Greet();                           //starting string
+    void Prompt();                          //prompt to make user know that he can type some command
 
 private:
-    bool help();
-    bool quit();
-    bool exit();
-    bool save();
-    bool load();
-    bool logfile();
-    bool logfile(std::string newpath);
-    bool list();
-    bool logOn();
-    bool logOff();
-    bool logAppend();
-    bool logNew();
-    bool logClearHistory();
+    bool help();                            //help string with instructions how to use this CLI
+    bool quit();                            //saves history & exits from CLI
+    bool exit();                            //exits from CLI
+    bool save();                            //saves history
+    bool load();                            //displays records from logfile
+    bool logfile();                         //displays current path of logfile
+    bool logfile(const std::string& newpath);      //sets logfile path
+    bool list();                            //displays current history
+    bool logOn();                           //switch on writing to history
+    bool logOff();                          //switch of writing to history
+    bool logAppend();                       //log.logAppend = true
+    bool logNew();                          //log.logAppend = false
+    bool logClearHistory();                 //clear current history
 
-    bool fileExists(std::string path);
+    bool fileExists(const std::string& path);      //check existing of specific file
 };
 
 #endif //LAB17_CLI_H

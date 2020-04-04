@@ -7,16 +7,14 @@ int main()
     cli -> Greet();
     bool check;
 
-    do
+    while(true)
     {
-        Command* command = cli -> GetCommand();
-        check = cli -> ExecuteCommand(command);
-        if(!check)
+        Command* command = cli -> GetCommand();             //getting command from user
+        check = cli -> ExecuteCommand(command);             //executing command
+        if(!check)                                          //if execution was not successful aware user about it
             std::cout << "Something went wrong..." << '\n';
         if(!(command -> GetCommand()).empty())
-        std::cout << '\n';
+            std::cout << '\n';
     }
-    while(true);
-
     return 0;
 }

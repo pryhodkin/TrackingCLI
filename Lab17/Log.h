@@ -10,20 +10,20 @@
 class Log
 {
 private:
-    std::string path;
-    bool isAppend;
+    std::string path;                   //logfile path
+    bool isAppend;                      //false - delete all old records from logfile when save new
 
 public:
     Log();
 
-    bool SaveHistory(History& history);
-    std::string GetFromLogfile();
+    bool SaveHistory(History& history); //save history to logfile
+    std::string GetFromLogfile();       //get old records from logfile
 
-    std::string GetPath();
-    bool SetPath(std::string);
+    std::string GetPath();              //getter for 'path'
+    bool SetPath(const std::string&);          //setter for 'path'
 
-    bool IsAppend();
-    void IsAppend(bool set);
+    bool IsAppend();                    //getter for 'isAppend'
+    void IsAppend(bool set);            //setter for 'isAppend'
 };
 
 #endif //LAB17_LOG_H

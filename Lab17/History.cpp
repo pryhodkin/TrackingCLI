@@ -6,26 +6,27 @@
 
 History::History()
 {
-    isOn = true;
-    savedPointer = 0;
+    isOn = true;        //default is true
+    savedPointer = 0;   //we haven't saved any records to logfile yet
 }
 
 bool History::Clear()
 {
-    history.clear();
-    savedPointer = 0;
+    history.clear();    //delete all records from history
+    savedPointer = 0;   //we haven't saved any records to logfile yet
     return true;
 }
 
-bool History::Write(Command command)
+bool History::Write(const Command& command)
 {
     history.push_back(command);
     return true;
 }
 
-std::string History::ToString(int bottomBound) {
+std::string History::ToString(int bottomBound)
+{
     std::string result = "";
-    for(unsigned long i = bottomBound; i < history.size(); i++)
+    for(unsigned long i = bottomBound; i < history.size(); i++) //simple iterate
         result += history[i].ToString() + "\n\n";
     return result;
 }

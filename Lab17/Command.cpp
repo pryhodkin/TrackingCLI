@@ -4,21 +4,20 @@
 
 #include "Command.h"
 
-#include <utility>
 #include <sstream>
 
-Command::Command(std::string line)
+Command::Command(const std::string& line)
 {
-    std::vector<std::string> args = splitArguments(std::move(line));
+    std::vector<std::string> args = splitArguments(line);
     if(!args.empty())
     {
-        command = args[0];
-        for (int i = 1; i < args.size(); i++)
+        command = args[0];                      //first word is our command
+        for (int i = 1; i < args.size(); i++)   //all other words are arguments
             arguments.push_back(args[i]);
     }
-    std::time_t now = std::time(NULL);
+    std::time_t now = std::time(nullptr);   //taking current time
     std::tm time = *std::localtime(&now);
-    datetime = DatetimeToString(time);
+    datetime = DatetimeToString(time);          //conversion time to string
 }
 
 std::string Command::GetCommand()
@@ -32,12 +31,12 @@ std::vector<std::string> Command::GetArguments()
 }
 
 std::string Command::ToString() const
-{
+{             //if command is 'log' we should return to string also a few next words that are in arguments
     std::string result = datetime + "\t-\t" + command + (command == "log"? " " + (arguments[0] == "history"? arguments[0] + " " + arguments[1]: arguments[0]):"");
     return result;
 }
 
-std::vector<std::string> Command::splitArguments(std::string line)
+std::vector<std::string> Command::splitArguments(const std::string& line)
 {
     std::stringstream stream(line);
     std::vector<std::string> result;
@@ -48,8 +47,8 @@ std::vector<std::string> Command::splitArguments(std::string line)
 
 std::string Command::DatetimeToString(std::tm time)
 {
-    std::stringstream result;
-    result << 1900 + time.tm_year << ":";
+    std::stringstream result;               //to save every datetime in the same string format we write zeros
+    result << 1900 + time.tm_year << ":";   //in the front of value if it's necessary
     result << (time.tm_mon < 9 ? "0": "") << 1 + time.tm_mon << ":";
     result << (time.tm_mday < 10? "0": "") << time.tm_mday << ":";
     result << (time.tm_hour< 10? "0": "") << time.tm_hour << ":";

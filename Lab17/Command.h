@@ -12,20 +12,20 @@
 class Command
 {
 private:
-    std::string command;
-    std::vector<std::string> arguments;
-    std::string datetime;
+    std::string command;                        //first word from line
+    std::vector<std::string> arguments;         //other words
+    std::string datetime;                       //date & time when command was entered
 
 public:
-    Command(std::string line);
+    Command(const std::string& line);
 
-    std::string GetCommand();
-    std::vector<std::string> GetArguments();
-    std::string ToString() const;
+    std::string GetCommand();                   //getter for field 'command'
+    std::vector<std::string> GetArguments();    //getter for field 'arguments'
+    std::string ToString() const;               //converts command to string "'datetime'\t-\t'command'"
 
 private:
-    std::vector<std::string> splitArguments(std::string line);
-    std::string DatetimeToString(std::tm time);
+    static std::vector<std::string> splitArguments(const std::string& line); //splits string to vector of words
+    static std::string DatetimeToString(std::tm time);                //format: yyyy:mm:dd:hh:mm:ss
 };
 
 #endif //LAB17_COMMAND_H

@@ -8,22 +8,24 @@
 
 Log::Log()
 {
-    isAppend = true;
-    path = "d:/log.txt";
+    isAppend = true;                                    //default value is true
+    path = "d:/log.txt";                                //default path
 }
 
 bool Log::SaveHistory(History& history)
 {
     std::fstream logfile;
 
-    if(isAppend)
+    if(isAppend)                                        //if we use append, open file for appending
         logfile.open(path, std::fstream::app);
-    else
+    else                                                //else for overwrite
         logfile.open(path, std::fstream::out);
 
-    logfile << history.ToString(history.SavedPointer());
+    logfile << history.ToString(history.SavedPointer());//sets savedPointer on current end of history
     logfile.close();
-    return (bool)logfile;
+    if(logfile)
+        history.SavedPointer(history.Size());
+    return (bool)logfile;                               //returns property of success
 }
 
 std::string Log::GetFromLogfile()
@@ -43,13 +45,11 @@ std::string Log::GetPath()
     return path;
 }
 
-bool Log::SetPath(std::string newpath)
+bool Log::SetPath(const std::string& newpath)
 {
-    std::fstream checkPath(newpath, std::fstream::in);
+    std::fstream checkPath(newpath, std::fstream::in);  //validation of newpath
     if(!checkPath)
-    {
         return false;
-    }
     path = newpath;
     return true;
 }

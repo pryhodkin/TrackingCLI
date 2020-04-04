@@ -23,10 +23,10 @@ Command* CLI::GetCommand()
 bool CLI::ExecuteCommand(Command *command)
 {
     std::string func = command -> GetCommand();
-    if(func.empty()) return true;
+    if(func.empty()) return true;                               //if the command is empty do nothing
     std::vector<std::string> args = command -> GetArguments();
     if(history -> IsOn()) history -> Write(*command);
-    if(func == "help")                        return help();
+    if(func == "help")                        return help();    //simple iterate of commands
     if(func == "quit")                        return quit();
     if(func == "exit")                        return exit();
     if(func == "save")                        return save();
@@ -44,14 +44,14 @@ bool CLI::ExecuteCommand(Command *command)
     if(func == "log" && args.size() == 2)
         if(args[0] == "clear" && args[1] == "history")
                                               return logClearHistory();
-    return false;
+    return false;                                               //if anyone doesn't fit returns false
 }
 
 void CLI::Greet()
 {
-    std::cout << "Logfile path: " << log -> GetPath() << '\n';
-    std::cout << StringConsts::Greet << "\n\n";
-    std::cout << StringConsts::Help  << '\n';
+    std::cout << "Logfile path: " << log -> GetPath() << '\n';  //displaying logfile path
+    std::cout << StringConsts::Greet << "\n\n";                 //simple greeting
+    std::cout << StringConsts::Help  << '\n';                   //& instructions how to use CLI
 }
 
 void CLI::Prompt()
@@ -81,11 +81,12 @@ bool CLI::exit()
 
 bool CLI::save()
 {
-    bool check = log -> SaveHistory(*history);
-    if(check)
-        history -> SavedPointer(history -> Size());
-    std::cout << "History saved" << '\n';
-    return check;
+    if(log -> SaveHistory(*history))
+    {
+        std::cout << "History saved" << '\n';
+        return true;
+    }
+    return false;
 }
 
 bool CLI::load()
@@ -101,7 +102,7 @@ bool CLI::logfile()
     return true;
 }
 
-bool CLI::logfile(std::string newpath)
+bool CLI::logfile(const std::string& newpath)
 {
     if(log -> SetPath(newpath))
         std::cout << "Logfile path setted as: " << newpath << '\n';
@@ -162,7 +163,7 @@ bool CLI::logClearHistory()
 }
 
 
-bool CLI::fileExists(std::string path)
+bool CLI::fileExists(const std::string& path)
 {
     std::fstream check(path, std::fstream::in);
     return (bool)check;

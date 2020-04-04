@@ -14,8 +14,13 @@
     <list default="true" id="816c3065-e795-4f91-9c98-35615bc885b8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CLI.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/CLI.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CLI.h" beforeDir="false" afterPath="$PROJECT_DIR$/CLI.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Command.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Command.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Lab17.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Lab17.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Command.h" beforeDir="false" afterPath="$PROJECT_DIR$/Command.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/History.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/History.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/History.h" beforeDir="false" afterPath="$PROJECT_DIR$/History.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Log.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Log.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Log.h" beforeDir="false" afterPath="$PROJECT_DIR$/Log.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -77,7 +82,16 @@
       <workItem from="1584646475308" duration="33355000" />
       <workItem from="1584779140687" duration="249000" />
       <workItem from="1584781681080" duration="765000" />
-      <workItem from="1584782584331" duration="1586000" />
+      <workItem from="1584782584331" duration="2001000" />
+      <workItem from="1584797479221" duration="1125000" />
+      <workItem from="1584911534258" duration="224000" />
+      <workItem from="1585070544439" duration="114000" />
+      <workItem from="1585231668176" duration="4965000" />
+      <workItem from="1585262266578" duration="421000" />
+      <workItem from="1585322103438" duration="7184000" />
+      <workItem from="1585597745787" duration="323000" />
+      <workItem from="1585671339790" duration="8000" />
+      <workItem from="1585672799736" duration="69000" />
     </task>
     <servers />
   </component>
