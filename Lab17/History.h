@@ -18,7 +18,7 @@ public:
     History();
 
     bool Clear();                           //clearing the history
-    bool Write(const Command& command);            //write some Command to history
+    bool Write(const Command& command);     //write some Command to history
     std::string ToString(int bottomBound);  //conversion to string from some exact bottom bound till the end of history
 
     bool IsOn();                        //getter for 'isOn'

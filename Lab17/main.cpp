@@ -15,6 +15,7 @@ int main()
             std::cout << "Something went wrong..." << '\n';
         if(!(command -> GetCommand()).empty())
             std::cout << '\n';
+        delete command;
     }
     return 0;
 }
