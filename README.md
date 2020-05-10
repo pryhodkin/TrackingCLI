@@ -81,6 +81,7 @@ bool CLI::customCommand() // implement your method
 
 **StringConsts.cpp**
 ```c++
+...
 
 std::string StringConsts::Help =  "This program is doing nothing:\n"
                                   "\n"
