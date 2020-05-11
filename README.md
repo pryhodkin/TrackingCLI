@@ -96,7 +96,7 @@ std::string StringConsts::Help =  "This program is doing nothing:\n"
                                   "-\t quit              -\t save history to logfile and exit from program\n"
                                   ...
                                   //add a description to actions that perform your command
-                                  "-\t costomCommand    -\t description\n";
+                                  "-\t customCommand    -\t description\n";
                                   //like this
 ```
 
