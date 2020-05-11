@@ -1,6 +1,10 @@
 # TrackingCLI
 Base CLI to save commands in history and log
 
+## What is it?
+This is a Command Line Interface, it can save actions you do in local history and logfile.
+That's all, you can modify CLI adding your custom commands.
+
 ## How to add custom command?
 1. Add private method to CLI class that would be executed with this command.
 2. Add ```if``` _condition_ to public method ```CLI::execute()```.
