@@ -1,5 +1,5 @@
 
-I this Lab work you should implement an **C**ommand **L**ine **I**nterface.
+In this Lab work you should implement a **C**ommand **L**ine **I**nterface.
 
 ### Commands must be recognized
 
