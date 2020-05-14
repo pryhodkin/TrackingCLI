@@ -21,10 +21,10 @@ public:
     bool Write(const Command& command);     //write some Command to history
     std::string ToString(int bottomBound);  //conversion to string from some exact bottom bound till the end of history
 
-    bool IsOn();                        //getter for 'isOn'
+    bool IsOn() const;                  //getter for 'isOn'
     void IsOn(bool set);                //setter for 'isOn'
 
-    int SavedPointer();                 //getter for 'savedPointer'
+    int SavedPointer() const;           //getter for 'savedPointer'
     void SavedPointer(int set);         //setter for 'savedPointer'
 
     int Size();                         //size of history (number of records)

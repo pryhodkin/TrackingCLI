@@ -20,19 +20,24 @@ Command::Command(const std::string& line)
     datetime = DatetimeToString(time);          //conversion time to string
 }
 
-std::string Command::GetCommand()
+const std::string& Command::GetCommand() const
 {
     return command;
 }
 
-std::vector<std::string> Command::GetArguments()
+const std::vector<std::string>& Command::GetArguments() const
 {
     return arguments;
 }
 
 std::string Command::ToString() const
 {             //if command is 'log' we should return to string also a few next words that are in arguments
-    std::string result = datetime + "\t-\t" + command + (command == "log"? " " + (arguments[0] == "history"? arguments[0] + " " + arguments[1]: arguments[0]):"");
+    std::string result = datetime + "\t-\t" + command;
+    if(command == "log")
+    {
+        for(const auto & argument : arguments)
+            result += ' ' + argument;
+    }
     return result;
 }
 
@@ -45,15 +50,15 @@ std::vector<std::string> Command::splitArguments(const std::string& line)
     return result;
 }
 
-std::string Command::DatetimeToString(std::tm time)
+std::string Command::DatetimeToString(const std::tm& time)
 {
     std::stringstream result;               //to save every datetime in the same string format we write zeros
-    result << 1900 + time.tm_year << ":";   //in the front of value if it's necessary
-    result << (time.tm_mon < 9 ? "0": "") << 1 + time.tm_mon << ":";
-    result << (time.tm_mday < 10? "0": "") << time.tm_mday << ":";
-    result << (time.tm_hour< 10? "0": "") << time.tm_hour << ":";
-    result << (time.tm_min < 10? "0": "") << time.tm_min << ":";
-    result << (time.tm_sec < 10? "0": "") << time.tm_sec;
+    result << 1900 + time.tm_year << ".";   //in the front of value if it's necessary
+    result << (time.tm_mon  < 9 ? "0": "") << 1 + time.tm_mon << ".";
+    result << (time.tm_mday < 10? "0": "") << time.tm_mday << " ";
+    result << (time.tm_hour < 10? "0": "") << time.tm_hour << ":";
+    result << (time.tm_min  < 10? "0": "") << time.tm_min  << ":";
+    result << (time.tm_sec  < 10? "0": "") << time.tm_sec;
     return result.str();
 }
 

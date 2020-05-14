@@ -28,7 +28,7 @@ bool Log::SaveHistory(History& history)
     return (bool)logfile;                               //returns property of success
 }
 
-std::string Log::GetFromLogfile()
+std::string Log::GetFromLogfile() const
 {
     //Made with principle "Working? Don't touch!1!"
     std::string result;
@@ -40,12 +40,12 @@ std::string Log::GetFromLogfile()
 }
 
 
-std::string Log::GetPath()
+std::string Log::Path() const
 {
     return path;
 }
 
-bool Log::SetPath(const std::string& newpath)
+bool Log::Path(const std::string& newpath)
 {
     std::fstream checkPath(newpath, std::fstream::in);  //validation of newpath
     if(!checkPath)
@@ -54,7 +54,7 @@ bool Log::SetPath(const std::string& newpath)
     return true;
 }
 
-bool Log::IsAppend()
+bool Log::IsAppend() const
 {
     return isAppend;
 }

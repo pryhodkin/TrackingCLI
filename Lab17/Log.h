@@ -17,13 +17,13 @@ public:
     Log();
 
     bool SaveHistory(History& history); //save history to logfile
-    std::string GetFromLogfile();       //get old records from logfile
+    std::string GetFromLogfile() const;       //get old records from logfile
 
-    std::string GetPath();              //getter for 'path'
-    bool SetPath(const std::string&);          //setter for 'path'
+    std::string Path() const;                 //getter for 'path'
+    bool Path(const std::string&);            //setter for 'path'
 
-    bool IsAppend();                    //getter for 'isAppend'
-    void IsAppend(bool set);            //setter for 'isAppend'
+    bool IsAppend() const;                    //getter for 'isAppend'
+    void IsAppend(bool set);                  //setter for 'isAppend'
 };
 
 #endif //LAB17_LOG_H

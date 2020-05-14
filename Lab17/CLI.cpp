@@ -12,7 +12,7 @@ CLI::CLI()
     history = new History();
 }
 
-Command* CLI::GetCommand()
+Command* CLI::GetCommand() const
 {
     Prompt();
     std::string line;
@@ -47,14 +47,14 @@ bool CLI::ExecuteCommand(Command *command)
     return false;                                               //if anyone doesn't fit returns false
 }
 
-void CLI::Greet()
+void CLI::Greet() const
 {
-    std::cout << "Logfile path: " << log -> GetPath() << '\n';  //displaying logfile path
+    std::cout << "Logfile path: " << log -> Path() << '\n';  //displaying logfile path
     std::cout << StringConsts::Greet << "\n\n";                 //simple greeting
     std::cout << StringConsts::Help  << '\n';                   //& instructions how to use CLI
 }
 
-void CLI::Prompt()
+void CLI::Prompt() const
 {
     std::cout << StringConsts::Prompt;
 }
@@ -98,13 +98,13 @@ bool CLI::load()
 
 bool CLI::logfile()
 {
-    std::cout << "Logfile path: " << log -> GetPath() << '\n';
+    std::cout << "Logfile path: " << log -> Path() << '\n';
     return true;
 }
 
 bool CLI::logfile(const std::string& newpath)
 {
-    if(log -> SetPath(newpath))
+    if(log -> Path(newpath))
         std::cout << "Logfile path setted as: " << newpath << '\n';
     else
     {

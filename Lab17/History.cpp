@@ -31,7 +31,7 @@ std::string History::ToString(int bottomBound)
     return result;
 }
 
-bool History::IsOn()
+bool History::IsOn() const
 {
     return isOn;
 }
@@ -41,7 +41,7 @@ void History::IsOn(bool set)
     isOn = set;
 }
 
-int History::SavedPointer()
+int History::SavedPointer() const
 {
     return savedPointer;
 }

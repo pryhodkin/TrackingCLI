@@ -19,13 +19,13 @@ private:
 public:
     Command(const std::string& line);
 
-    std::string GetCommand();                   //getter for field 'command'
-    std::vector<std::string> GetArguments();    //getter for field 'arguments'
-    std::string ToString() const;               //converts command to string "'datetime'\t-\t'command'"
+    const std::string& GetCommand()               const;    //getter for field 'command'
+    const std::vector<std::string>& GetArguments()const;    //getter for field 'arguments'
+    std::string ToString()                        const;    //converts command to string "'datetime'\t-\t'command'"
 
 private:
     static std::vector<std::string> splitArguments(const std::string& line); //splits string to vector of words
-    static std::string DatetimeToString(std::tm time);                //format: yyyy:mm:dd:hh:mm:ss
+    static std::string DatetimeToString(const std::tm& time);                //format: yyyy.mm.dd hh:mm:ss
 };
 
 #endif //LAB17_COMMAND_H
