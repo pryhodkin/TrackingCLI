@@ -9,11 +9,6 @@
 
 class History
 {
-private:
-    std::vector<Command> history;       //field that contains all records in history
-    bool isOn;                          //should we write to history or not
-    int savedPointer;                   //index of record that we should save to logfile at first
-
 public:
     History();
 
@@ -28,6 +23,12 @@ public:
     void SavedPointer(int set);         //setter for 'savedPointer'
 
     int Size();                         //size of history (number of records)
+
+private:
+    std::vector<Command> history;       //field that contains all records in history
+    bool isOn;                          //should we write to history or not
+    int savedPointer;                   //index of record that we should save to logfile at first
+
 };
 
 #endif //LAB17_HISTORY_H
